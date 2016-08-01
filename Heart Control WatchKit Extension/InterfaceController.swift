@@ -20,22 +20,6 @@ class InterfaceController: WKInterfaceController {
 
     private let workoutManager = WorkoutManager()
 
-    // MARK: - Lifecycle
-
-    override func awake(withContext context: AnyObject?) {
-        super.awake(withContext: context)
-    }
-    
-    override func willActivate() {
-        super.willActivate()
-
-        workoutManager.requestAuthorization()
-    }
-
-    override func didDeactivate() {
-        super.didDeactivate()
-    }
-
     // MARK: - Actions
 
     @IBAction func didTapStartButton() {
