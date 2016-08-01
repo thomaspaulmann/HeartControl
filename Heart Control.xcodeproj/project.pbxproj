@@ -21,6 +21,7 @@
 		BE25B0121D4F33B100DAF094 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE25B0111D4F33B100DAF094 /* Assets.xcassets */; };
 		BE496A1B1D4F467100C82C4F /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE496A1A1D4F467100C82C4F /* HealthKit.framework */; };
 		BE496A1F1D4F467900C82C4F /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE496A1E1D4F467900C82C4F /* HealthKit.framework */; };
+		BE496A211D4F4CBA00C82C4F /* HKWorkoutSessionState+Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE496A201D4F4CBA00C82C4F /* HKWorkoutSessionState+Description.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		BE496A1C1D4F467100C82C4F /* Heart Control WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Heart Control WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		BE496A1D1D4F467900C82C4F /* Heart Control.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Heart Control.entitlements"; sourceTree = "<group>"; };
 		BE496A1E1D4F467900C82C4F /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		BE496A201D4F4CBA00C82C4F /* HKWorkoutSessionState+Description.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HKWorkoutSessionState+Description.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 				BE25B00F1D4F33B100DAF094 /* ExtensionDelegate.swift */,
 				BE25B0111D4F33B100DAF094 /* Assets.xcassets */,
 				BE25B0131D4F33B100DAF094 /* Info.plist */,
+				BE496A201D4F4CBA00C82C4F /* HKWorkoutSessionState+Description.swift */,
 			);
 			path = "Heart Control WatchKit Extension";
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 			files = (
 				BE25B0101D4F33B100DAF094 /* ExtensionDelegate.swift in Sources */,
 				BE25B00E1D4F33B100DAF094 /* InterfaceController.swift in Sources */,
+				BE496A211D4F4CBA00C82C4F /* HKWorkoutSessionState+Description.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

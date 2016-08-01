@@ -8,7 +8,24 @@
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Heart_Control_WatchKit_App" customModuleProvider="target"/>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Heart_Control_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <label width="136" alignment="left" text="..." id="OFt-wc-yMT"/>
+                        <button width="1" alignment="left" title="Start" id="iNm-FD-Dqu">
+                            <connections>
+                                <action selector="didTapStartButton" destination="AgC-eL-Hgc" id="q2H-Dx-pxU"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Stop" id="rhH-Ld-9sb">
+                            <connections>
+                                <action selector="didTapStopButton" destination="AgC-eL-Hgc" id="Z1C-2T-zvT"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="workoutStatusLabel" destination="OFt-wc-yMT" id="xsC-DQ-7bX"/>
+                    </connections>
+                </controller>
             </objects>
         </scene>
     </scenes>
