@@ -16,9 +16,14 @@
                                 <action selector="didTapStartButton" destination="AgC-eL-Hgc" id="q2H-Dx-pxU"/>
                             </connections>
                         </button>
-                        <button width="1" alignment="left" title="Stop" id="rhH-Ld-9sb">
+                        <button width="1" alignment="left" title="Pause" id="rhH-Ld-9sb">
                             <connections>
-                                <action selector="didTapStopButton" destination="AgC-eL-Hgc" id="Z1C-2T-zvT"/>
+                                <action selector="didTapPauseButton" destination="AgC-eL-Hgc" id="H22-Bo-5Rf"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="End" id="18B-bT-Vmk">
+                            <connections>
+                                <action selector="didTapEndButton" destination="AgC-eL-Hgc" id="Cxl-AV-1DM"/>
                             </connections>
                         </button>
                     </items>

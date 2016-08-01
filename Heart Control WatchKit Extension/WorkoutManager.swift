@@ -14,14 +14,14 @@ class WorkoutManager: NSObject {
 
     private let healthStore = HKHealthStore()
 
-    private var workoutSession: HKWorkoutSession?
-    private var workoutStartDate: Date?
+    private var session: HKWorkoutSession?
+    private var startDate: Date?
 
     // MARK: - API
 
     func start() {
         // If we have already started the workout, then do nothing.
-        if (workoutSession != nil) {
+        if (session != nil) {
             // Another workout is running.
             return
         }
@@ -33,29 +33,39 @@ class WorkoutManager: NSObject {
 
         // Create workout session.
         do {
-            workoutSession = try HKWorkoutSession(configuration: workoutConfiguration)
-            workoutSession!.delegate = self
+            session = try HKWorkoutSession(configuration: workoutConfiguration)
+            session!.delegate = self
 
-            workoutStartDate = Date()
+            startDate = Date()
         } catch {
             fatalError("Unable to create Workout Session!")
         }
 
         // Start workout session.
-        healthStore.start(workoutSession!)
+        healthStore.start(session!)
     }
 
-    func stop() {
+    func pause() {
         // If we have already stopped the workout, then do nothing.
-        if (workoutSession == nil) {
+        if (session == nil) {
+            return
+        }
+
+        // Pause the workout session.
+        healthStore.pause(session!)
+    }
+
+    func end() {
+        // If we have already stopped the workout, then do nothing.
+        if (session == nil) {
             return
         }
 
         // Stop the workout session.
-        healthStore.end(workoutSession!)
+        healthStore.end(session!)
 
         // Clear the workout session.
-        workoutSession = nil
+        session = nil
     }
 
 }

@@ -42,10 +42,16 @@ class InterfaceController: WKInterfaceController {
         workoutStatusLabel.setText("Started...")
     }
 
-    @IBAction func didTapStopButton() {
-        workoutManager.stop()
+    @IBAction func didTapPauseButton() {
+        workoutManager.pause()
 
-        workoutStatusLabel.setText("Stopped!")
+        workoutStatusLabel.setText("Paused.")
+    }
+
+    @IBAction func didTapEndButton() {
+        workoutManager.end()
+
+        workoutStatusLabel.setText("Ended!")
     }
 
 }
