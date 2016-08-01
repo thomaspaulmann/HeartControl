@@ -22,6 +22,7 @@
 		BE496A1B1D4F467100C82C4F /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE496A1A1D4F467100C82C4F /* HealthKit.framework */; };
 		BE496A1F1D4F467900C82C4F /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE496A1E1D4F467900C82C4F /* HealthKit.framework */; };
 		BE496A211D4F4CBA00C82C4F /* HKWorkoutSessionState+Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE496A201D4F4CBA00C82C4F /* HKWorkoutSessionState+Description.swift */; };
+		BE496A231D4F4D9A00C82C4F /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE496A221D4F4D9A00C82C4F /* WorkoutManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		BE496A1D1D4F467900C82C4F /* Heart Control.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Heart Control.entitlements"; sourceTree = "<group>"; };
 		BE496A1E1D4F467900C82C4F /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		BE496A201D4F4CBA00C82C4F /* HKWorkoutSessionState+Description.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HKWorkoutSessionState+Description.swift"; sourceTree = "<group>"; };
+		BE496A221D4F4D9A00C82C4F /* WorkoutManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 				BE25B0111D4F33B100DAF094 /* Assets.xcassets */,
 				BE25B0131D4F33B100DAF094 /* Info.plist */,
 				BE496A201D4F4CBA00C82C4F /* HKWorkoutSessionState+Description.swift */,
+				BE496A221D4F4D9A00C82C4F /* WorkoutManager.swift */,
 			);
 			path = "Heart Control WatchKit Extension";
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE25B0101D4F33B100DAF094 /* ExtensionDelegate.swift in Sources */,
+				BE496A231D4F4D9A00C82C4F /* WorkoutManager.swift in Sources */,
 				BE25B00E1D4F33B100DAF094 /* InterfaceController.swift in Sources */,
 				BE496A211D4F4CBA00C82C4F /* HKWorkoutSessionState+Description.swift in Sources */,
 			);
