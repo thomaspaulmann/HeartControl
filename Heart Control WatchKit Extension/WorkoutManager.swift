@@ -16,8 +16,19 @@ class WorkoutManager: NSObject {
 
     private var session: HKWorkoutSession?
     private var startDate: Date?
+    private var activeQueries = [HKQuery]()
 
     // MARK: - API
+
+    func requestAuthorization() {
+        guard let quantityType = HKObjectType.quantityType(forIdentifier: .heartRate) else { return }
+
+        healthStore.requestAuthorization(toShare: nil, read: [quantityType]) { (success, error) -> Void in
+//            if success == false {
+//                fatalError()
+//            }
+        }
+    }
 
     func start() {
         // If we have already started the workout, then do nothing.
@@ -68,8 +79,44 @@ class WorkoutManager: NSObject {
         session = nil
     }
 
-}
+    // MARK: - Query
 
+    func startQueries() {
+        startQuery(for: .heartRate)
+        startQuery(for: .respiratoryRate)
+        startQuery(for: .oxygenSaturation)
+    }
+
+    func startQuery(for quantityTypeIdentifier: HKQuantityTypeIdentifier) {
+        // Configure the quantity type.
+        guard let quantityType = HKObjectType.quantityType(forIdentifier: quantityTypeIdentifier) else { return }
+
+        // Create the query.
+        let datePredicate = HKQuery.predicateForSamples(withStart: startDate, end: nil, options: .strictStartDate)
+        let devicePredicate = HKQuery.predicateForObjects(from: [HKDevice.local()])
+        let queryPredicate = CompoundPredicate(andPredicateWithSubpredicates:[datePredicate, devicePredicate])
+        let updateHandler: (HKAnchoredObjectQuery, [HKSample]?, [HKDeletedObject]?, HKQueryAnchor?, NSError?) -> Void = { query, samples, deletedObjects, queryAnchor, error in
+            // Process samples
+            print(samples)
+        }
+        let query = HKAnchoredObjectQuery(type: quantityType,
+                                          predicate: queryPredicate,
+                                          anchor: nil,
+                                          limit: HKObjectQueryNoLimit,
+                                          resultsHandler: updateHandler)
+        query.updateHandler = updateHandler
+
+        // Execute the heart rate query.
+        healthStore.execute(query)
+
+        activeQueries.append(query)
+    }
+
+    func stopQueries() {
+        activeQueries.forEach { healthStore.stop($0) }
+    }
+
+}
 
 // MARK: - Workout Session Delegate
 
@@ -77,8 +124,20 @@ extension WorkoutManager: HKWorkoutSessionDelegate {
 
     func workoutSession(_ workoutSession: HKWorkoutSession, didChangeTo toState: HKWorkoutSessionState, from fromState: HKWorkoutSessionState, date: Date) {
         print("Switch to \(toState.description()) from \(fromState.description())")
-    }
 
+        switch toState {
+        case .running:
+            if fromState == .notStarted {
+                stopQueries()
+            }
+
+        case .ended:
+            stopQueries()
+
+        default:
+            break
+        }
+    }
 
     func workoutSession(_ workoutSession: HKWorkoutSession, didFailWithError error: NSError) {
         fatalError(error.localizedDescription)

@@ -28,6 +28,8 @@ class InterfaceController: WKInterfaceController {
     
     override func willActivate() {
         super.willActivate()
+
+        workoutManager.requestAuthorization()
     }
 
     override func didDeactivate() {
@@ -39,7 +41,7 @@ class InterfaceController: WKInterfaceController {
     @IBAction func didTapStartButton() {
         workoutManager.start()
 
-        workoutStatusLabel.setText("Started...")
+        workoutStatusLabel.setText("Started.")
     }
 
     @IBAction func didTapPauseButton() {
@@ -51,7 +53,7 @@ class InterfaceController: WKInterfaceController {
     @IBAction func didTapEndButton() {
         workoutManager.end()
 
-        workoutStatusLabel.setText("Ended!")
+        workoutStatusLabel.setText("Ended.")
     }
 
 }
