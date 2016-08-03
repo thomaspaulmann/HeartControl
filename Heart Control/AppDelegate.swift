@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import WatchConnectivity
 import HealthKit
 
 @UIApplicationMain

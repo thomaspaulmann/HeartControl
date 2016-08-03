@@ -80,7 +80,7 @@ class HeartRateManager {
         activeQueries.removeAll()
     }
 
-    // MARK: - Private API
+    // MARK: - Process
 
     private func process(samples: [HKQuantitySample]) {
         // Process every single sample.
