@@ -12,8 +12,8 @@ typealias HKQueryUpdateHandler = (HKAnchoredObjectQuery, [HKSample]?, [HKDeleted
 
 struct HeartRate {
 
-    var timestamp: Date
-    var bpm: Double
+    let timestamp: Date
+    let bpm: Double
 
 }
 
