@@ -27,25 +27,20 @@ class HeartRateManager {
 
     // MARK: - Properties
 
-    internal var delegate: HeartRateDelegate?
+    private let healthStore = HKHealthStore()
 
-    private var healthStore: HKHealthStore
+    var delegate: HeartRateDelegate?
+
     private var activeQueries = [HKQuery]()
 
-    // MARK: - Initialization
-
-    init(_ healthStore: HKHealthStore) {
-        self.healthStore = healthStore
-    }
-
-    // MARK: - API
+    // MARK: - Public API
 
     func requestAuthorization() {
         guard let heartRateQuantityType = HKObjectType.quantityType(forIdentifier: .heartRate) else { return }
 
         healthStore.requestAuthorization(toShare: nil, read: [heartRateQuantityType]) { (success, error) -> Void in
             if success == false {
-                fatalError()
+                fatalError("Unable to request authorization of Health.")
             }
         }
     }
@@ -85,7 +80,7 @@ class HeartRateManager {
         activeQueries.removeAll()
     }
 
-    // MARK: - Process
+    // MARK: - Private API
 
     private func process(samples: [HKQuantitySample]) {
         // Process every single sample.

@@ -14,7 +14,8 @@ class InterfaceController: WKInterfaceController {
 
     // MARK: - Outlets
 
-    @IBOutlet var workoutStatusLabel: WKInterfaceLabel!
+    @IBOutlet var heartRateLabel: WKInterfaceLabel!
+    @IBOutlet var controlButton: WKInterfaceButton!
 
     // MARK: - Properties
 
@@ -22,22 +23,25 @@ class InterfaceController: WKInterfaceController {
 
     // MARK: - Actions
 
-    @IBAction func didTapStartButton() {
-        workoutManager.start()
+    @IBAction func didTapButton() {
+        switch workoutManager.state {
+        case .started:
+            // Stop current workout.
+            workoutManager.stop()
 
-        workoutStatusLabel.setText("Started.")
-    }
+            // Update title of control button.
+            controlButton.setTitle(workoutManager.state.actionText())
 
-    @IBAction func didTapPauseButton() {
-        workoutManager.pause()
+            break
+        case .stopped:
+            // Start new workout.
+            workoutManager.start()
 
-        workoutStatusLabel.setText("Paused.")
-    }
+            // Update title of control button.
+            controlButton.setTitle(workoutManager.state.actionText())
 
-    @IBAction func didTapEndButton() {
-        workoutManager.end()
-
-        workoutStatusLabel.setText("Ended.")
+            break
+        }
     }
 
 }

@@ -5,33 +5,27 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11055.6"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--Heart Control-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Heart_Control_WatchKit_App" customModuleProvider="target">
+                <controller title="Heart Control" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Heart_Control_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <label width="136" alignment="left" text="..." id="OFt-wc-yMT"/>
-                        <button width="1" alignment="left" title="Start" id="iNm-FD-Dqu">
+                        <label width="1" alignment="center" text="--" textAlignment="center" id="q60-id-Pm7">
+                            <fontDescription key="font" type="boldSystem" pointSize="90"/>
+                        </label>
+                        <button width="1" alignment="center" verticalAlignment="bottom" title="Start" id="iNm-FD-Dqu">
                             <connections>
-                                <action selector="didTapStartButton" destination="AgC-eL-Hgc" id="q2H-Dx-pxU"/>
-                            </connections>
-                        </button>
-                        <button width="1" alignment="left" title="Pause" id="rhH-Ld-9sb">
-                            <connections>
-                                <action selector="didTapPauseButton" destination="AgC-eL-Hgc" id="H22-Bo-5Rf"/>
-                            </connections>
-                        </button>
-                        <button width="1" alignment="left" title="End" id="18B-bT-Vmk">
-                            <connections>
-                                <action selector="didTapEndButton" destination="AgC-eL-Hgc" id="Cxl-AV-1DM"/>
+                                <action selector="didTapButton" destination="AgC-eL-Hgc" id="Gdw-ou-Tb4"/>
                             </connections>
                         </button>
                     </items>
                     <connections>
-                        <outlet property="workoutStatusLabel" destination="OFt-wc-yMT" id="xsC-DQ-7bX"/>
+                        <outlet property="controlButton" destination="iNm-FD-Dqu" id="eMe-9U-iM4"/>
+                        <outlet property="heartRateLabel" destination="q60-id-Pm7" id="gxC-k9-Omc"/>
                     </connections>
                 </controller>
             </objects>
+            <point key="canvasLocation" x="34" y="50"/>
         </scene>
     </scenes>
 </document>

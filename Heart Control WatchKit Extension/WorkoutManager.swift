@@ -8,22 +8,40 @@
 
 import HealthKit
 
+enum WorkoutState {
+
+    case started, stopped
+
+}
+
+extension WorkoutState {
+
+    func actionText() -> String {
+        switch self {
+        case .started:
+            return "Stop"
+        case .stopped:
+            return "Start"
+        }
+    }
+    
+}
+
 class WorkoutManager: NSObject {
 
     // MARK: - Properties
 
     private let healthStore = HKHealthStore()
 
-    private var heartRateManager: HeartRateManager
+    private(set) var state: WorkoutState = .stopped
+
+    private var heartRateManager = HeartRateManager()
     private var session: HKWorkoutSession?
     private var startDate: Date?
 
     // MARK: - Initialization
 
     override init() {
-        // Create heart rate manager.
-        heartRateManager = HeartRateManager(healthStore)
-
         super.init()
 
         // Configure heart rate manager.
@@ -31,7 +49,7 @@ class WorkoutManager: NSObject {
         heartRateManager.delegate = self
     }
 
-    // MARK: - API
+    // MARK: - Public API
 
     func start() {
         // If we have already started the workout, then do nothing.
@@ -57,19 +75,12 @@ class WorkoutManager: NSObject {
 
         // Start workout session.
         healthStore.start(session!)
+
+        // Update state to started
+        state = .started
     }
 
-    func pause() {
-        // If we have already stopped the workout, then do nothing.
-        if (session == nil) {
-            return
-        }
-
-        // Pause the workout session.
-        healthStore.pause(session!)
-    }
-
-    func end() {
+    func stop() {
         // If we have already stopped the workout, then do nothing.
         if (session == nil) {
             return
@@ -80,6 +91,9 @@ class WorkoutManager: NSObject {
 
         // Clear the workout session.
         session = nil
+
+        // Update state to stopped
+        state = .stopped
     }
 
 }
