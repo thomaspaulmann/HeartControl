@@ -29,9 +29,9 @@ extension WorkoutState {
 
 protocol WorkoutManagerDelegate: class {
 
+    func workoutManager(_ manager: WorkoutManager, didChangeStateTo newState: WorkoutState)
     func workoutManager(_ manager: WorkoutManager, didChangeHeartRateTo newHeartRate: HeartRate)
-    
-    optional func workoutManager(_ manager: WorkoutManager, didChangeStateTo newState: WorkoutState)
+
 }
 
 class WorkoutManager: NSObject {
