@@ -17,7 +17,7 @@ struct HeartRate {
 
 }
 
-protocol HeartRateDelegate {
+protocol HeartRateDelegate: class {
 
     func heartRate(didChangeTo newHeartRate: HeartRate)
 
@@ -29,7 +29,7 @@ class HeartRateManager {
 
     private let healthStore = HKHealthStore()
 
-    var delegate: HeartRateDelegate?
+    weak var delegate: HeartRateDelegate?
 
     private var activeQueries = [HKQuery]()
 

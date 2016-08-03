@@ -21,6 +21,14 @@ class InterfaceController: WKInterfaceController {
 
     private let workoutManager = WorkoutManager()
 
+    // MARK: - Initialization
+
+    override init() {
+        super.init()
+
+        workoutManager.delegate = self
+    }
+
     // MARK: - Actions
 
     @IBAction func didTapButton() {
@@ -28,20 +36,28 @@ class InterfaceController: WKInterfaceController {
         case .started:
             // Stop current workout.
             workoutManager.stop()
-
-            // Update title of control button.
-            controlButton.setTitle(workoutManager.state.actionText())
-
             break
         case .stopped:
             // Start new workout.
             workoutManager.start()
-
-            // Update title of control button.
-            controlButton.setTitle(workoutManager.state.actionText())
-
             break
         }
+    }
+
+}
+
+// MARK: - Workout Manager Delegate
+
+extension InterfaceController: WorkoutManagerDelegate {
+
+    func workoutManager(_ manager: WorkoutManager, didChangeStateTo newState: WorkoutState) {
+        // Update title of control button.
+        controlButton.setTitle(newState.actionText())
+    }
+
+    func workoutManager(_ manager: WorkoutManager, didChangeHeartRateTo newHeartRate: HeartRate) {
+        // Update heart rate label.
+        heartRateLabel.setText(String(format: "%.0f", newHeartRate.bpm))
     }
 
 }

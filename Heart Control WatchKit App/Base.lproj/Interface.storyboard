@@ -13,7 +13,7 @@
                         <label width="1" alignment="center" text="--" textAlignment="center" id="q60-id-Pm7">
                             <fontDescription key="font" type="boldSystem" pointSize="90"/>
                         </label>
-                        <button width="1" alignment="center" verticalAlignment="bottom" title="Start" id="iNm-FD-Dqu">
+                        <button width="1" alignment="center" title="Start" id="iNm-FD-Dqu">
                             <connections>
                                 <action selector="didTapButton" destination="AgC-eL-Hgc" id="Gdw-ou-Tb4"/>
                             </connections>

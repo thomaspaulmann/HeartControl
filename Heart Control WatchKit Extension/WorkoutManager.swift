@@ -27,17 +27,25 @@ extension WorkoutState {
     
 }
 
+protocol WorkoutManagerDelegate: class {
+
+    func workoutManager(_ manager: WorkoutManager, didChangeStateTo newState: WorkoutState)
+    func workoutManager(_ manager: WorkoutManager, didChangeHeartRateTo newHeartRate: HeartRate)
+
+}
+
 class WorkoutManager: NSObject {
 
     // MARK: - Properties
 
     private let healthStore = HKHealthStore()
 
+    weak var delegate: WorkoutManagerDelegate?
+
     private(set) var state: WorkoutState = .stopped
 
     private var heartRateManager = HeartRateManager()
     private var session: HKWorkoutSession?
-    private var startDate: Date?
 
     // MARK: - Initialization
 
@@ -67,8 +75,6 @@ class WorkoutManager: NSObject {
         do {
             session = try HKWorkoutSession(configuration: workoutConfiguration)
             session!.delegate = self
-
-            startDate = Date()
         } catch {
             fatalError("Unable to create Workout Session!")
         }
@@ -76,8 +82,9 @@ class WorkoutManager: NSObject {
         // Start workout session.
         healthStore.start(session!)
 
-        // Update state to started
+        // Update state to started and inform delegates.
         state = .started
+        delegate?.workoutManager(self, didChangeStateTo: state)
     }
 
     func stop() {
@@ -92,8 +99,9 @@ class WorkoutManager: NSObject {
         // Clear the workout session.
         session = nil
 
-        // Update state to stopped
+        // Update state to stopped and inform delegates.
         state = .stopped
+        delegate?.workoutManager(self, didChangeStateTo: state)
     }
 
 }
@@ -132,7 +140,7 @@ extension WorkoutManager: HKWorkoutSessionDelegate {
 extension WorkoutManager: HeartRateDelegate {
 
     func heartRate(didChangeTo newHeartRate: HeartRate) {
-        print(newHeartRate)
+        delegate?.workoutManager(self, didChangeHeartRateTo: newHeartRate)
     }
 
 }
