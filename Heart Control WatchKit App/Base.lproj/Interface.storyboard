@@ -11,6 +11,7 @@
                 <controller title="Heart Control" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Heart_Control_WatchKit_App" customModuleProvider="target">
                     <items>
                         <label width="1" alignment="center" text="--" textAlignment="center" id="q60-id-Pm7">
+                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="font" type="boldSystem" pointSize="90"/>
                         </label>
                         <button width="1" alignment="center" title="Start" id="iNm-FD-Dqu">
