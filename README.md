@@ -4,6 +4,8 @@ Monitor your heart rate, continuously.
 
 <img src="Design/Logo.png" width="400px"/>
 
+[![Swift](https://img.shields.io/badge/Swift-3.0-green.svg)](http://www.github.com/thomaspaulmann/heartcontrol/)
+
 ## What is it?
 
 Heart Control is a standalone watch app to monitor continuously heart rate on [watchOS 3](http://www.apple.com/watchos-preview/). It collects and analyzes data in real-time in the background.
