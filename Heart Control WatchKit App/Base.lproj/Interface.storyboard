@@ -10,10 +10,18 @@
             <objects>
                 <controller title="Heart Control" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Heart_Control_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <label width="1" alignment="center" text="--" textAlignment="center" id="q60-id-Pm7">
-                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="font" type="boldSystem" pointSize="90"/>
-                        </label>
+                        <group width="1" alignment="right" spacing="5" id="Omy-g0-taR">
+                            <items>
+                                <label alignment="right" text="--" textAlignment="center" id="q60-id-Pm7">
+                                    <accessibilityTraits key="accessibilityTraits" staticText="YES" notEnabled="YES"/>
+                                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="font" type="system" weight="medium" pointSize="60"/>
+                                </label>
+                                <label alignment="right" text="BPM" id="vo6-Km-Myq">
+                                    <accessibilityTraits key="accessibilityTraits" staticText="YES" notEnabled="YES"/>
+                                </label>
+                            </items>
+                        </group>
                         <button width="1" alignment="center" title="Start" id="iNm-FD-Dqu">
                             <connections>
                                 <action selector="didTapButton" destination="AgC-eL-Hgc" id="Gdw-ou-Tb4"/>
@@ -29,4 +37,5 @@
             <point key="canvasLocation" x="34" y="50"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>
