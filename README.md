@@ -1,8 +1,8 @@
-[![Swift](https://img.shields.io/badge/Swift-3.0-green.svg)](http://www.github.com/thomaspaulmann/heartcontrol/)
+[![Swift](https://img.shields.io/badge/Swift-3.0-green.svg)](https://swift.org) [![watchOS](https://img.shields.io/badge/watchOS-3.0-green.svg)](https://developer.apple.com/watchos/)
 
 # Heart Control
 
-Monitor your heart rate, continuously.
+Monitor your heart rate on the apple watch - continuously and easy.
 
 ## What is it?
 
