@@ -19,6 +19,7 @@
 		BE25B00E1D4F33B100DAF094 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE25B00D1D4F33B100DAF094 /* InterfaceController.swift */; };
 		BE25B0101D4F33B100DAF094 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE25B00F1D4F33B100DAF094 /* ExtensionDelegate.swift */; };
 		BE25B0121D4F33B100DAF094 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE25B0111D4F33B100DAF094 /* Assets.xcassets */; };
+		BE3FDBDC1D576B8D009165A8 /* HeartRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3FDBDB1D576B8D009165A8 /* HeartRate.swift */; };
 		BE496A1B1D4F467100C82C4F /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE496A1A1D4F467100C82C4F /* HealthKit.framework */; };
 		BE496A1F1D4F467900C82C4F /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE496A1E1D4F467900C82C4F /* HealthKit.framework */; };
 		BE496A231D4F4D9A00C82C4F /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE496A221D4F4D9A00C82C4F /* WorkoutManager.swift */; };
@@ -85,6 +86,7 @@
 		BE25B00F1D4F33B100DAF094 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		BE25B0111D4F33B100DAF094 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE25B0131D4F33B100DAF094 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE3FDBDB1D576B8D009165A8 /* HeartRate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartRate.swift; sourceTree = "<group>"; };
 		BE496A1A1D4F467100C82C4F /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS3.0.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		BE496A1C1D4F467100C82C4F /* Heart Control WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Heart Control WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		BE496A1D1D4F467900C82C4F /* Heart Control.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Heart Control.entitlements"; sourceTree = "<group>"; };
@@ -138,13 +140,11 @@
 		BE25AFE91D4F33B100DAF094 /* Heart Control */ = {
 			isa = PBXGroup;
 			children = (
-				BE496A1D1D4F467900C82C4F /* Heart Control.entitlements */,
+				BE3FDBDE1D576BC1009165A8 /* Supporting Files */,
 				BE25AFEA1D4F33B100DAF094 /* AppDelegate.swift */,
 				BE25AFEC1D4F33B100DAF094 /* ViewController.swift */,
 				BE25AFEE1D4F33B100DAF094 /* Main.storyboard */,
-				BE25AFF11D4F33B100DAF094 /* Assets.xcassets */,
 				BE25AFF31D4F33B100DAF094 /* LaunchScreen.storyboard */,
-				BE25AFF61D4F33B100DAF094 /* Info.plist */,
 			);
 			path = "Heart Control";
 			sourceTree = "<group>";
@@ -162,16 +162,35 @@
 		BE25B00C1D4F33B100DAF094 /* Heart Control WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				BE496A1C1D4F467100C82C4F /* Heart Control WatchKit Extension.entitlements */,
+				BE3FDBDD1D576BB1009165A8 /* Supporting Files */,
 				BE25B00D1D4F33B100DAF094 /* InterfaceController.swift */,
 				BE25B00F1D4F33B100DAF094 /* ExtensionDelegate.swift */,
-				BE25B0111D4F33B100DAF094 /* Assets.xcassets */,
-				BE25B0131D4F33B100DAF094 /* Info.plist */,
 				BE496A221D4F4D9A00C82C4F /* WorkoutManager.swift */,
 				BEB5C5BA1D4F656D00BBF490 /* HeartRateManager.swift */,
+				BE3FDBDB1D576B8D009165A8 /* HeartRate.swift */,
 				BE5AEE161D4F7CED0027C49C /* HKUnit+BeatsPerMinute.swift */,
 			);
 			path = "Heart Control WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		BE3FDBDD1D576BB1009165A8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BE496A1C1D4F467100C82C4F /* Heart Control WatchKit Extension.entitlements */,
+				BE25B0111D4F33B100DAF094 /* Assets.xcassets */,
+				BE25B0131D4F33B100DAF094 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BE3FDBDE1D576BC1009165A8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BE496A1D1D4F467900C82C4F /* Heart Control.entitlements */,
+				BE25AFF11D4F33B100DAF094 /* Assets.xcassets */,
+				BE25AFF61D4F33B100DAF094 /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		BE496A191D4F467100C82C4F /* Frameworks */ = {
@@ -347,6 +366,7 @@
 				BE496A231D4F4D9A00C82C4F /* WorkoutManager.swift in Sources */,
 				BE5AEE171D4F7CED0027C49C /* HKUnit+BeatsPerMinute.swift in Sources */,
 				BE25B00E1D4F33B100DAF094 /* InterfaceController.swift in Sources */,
+				BE3FDBDC1D576B8D009165A8 /* HeartRate.swift in Sources */,
 				BEB5C5BB1D4F656D00BBF490 /* HeartRateManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
