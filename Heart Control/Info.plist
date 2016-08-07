@@ -35,5 +35,7 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+    <key>NSHealthShareUsageDescription</key>
+    <string>Read your Heart Rate and present it on your Apple Watch.</string>
 </dict>
 </plist>

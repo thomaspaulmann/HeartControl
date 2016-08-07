@@ -8,9 +8,9 @@
 
 import HealthKit
 
-typealias HKQueryUpdateHandler = (HKAnchoredObjectQuery, [HKSample]?, [HKDeletedObject]?, HKQueryAnchor?, NSError?) -> Void
+typealias HKQueryUpdateHandler = ((HKAnchoredObjectQuery, [HKSample]?, [HKDeletedObject]?, HKQueryAnchor?, Error?) -> Swift.Void)
 
-protocol HeartRateDelegate: class {
+protocol HeartRateManagerDelegate: class {
 
     func heartRate(didChangeTo newHeartRate: HeartRate)
 
@@ -20,47 +20,32 @@ class HeartRateManager {
 
     // MARK: - Properties
 
-    private lazy var heartRateQuantityType: HKObjectType = {
-        return HKObjectType.quantityType(forIdentifier: .heartRate)!
-    }()
-
     private let healthStore = HKHealthStore()
 
-    weak var delegate: HeartRateDelegate?
+    weak var delegate: HeartRateManagerDelegate?
 
     private var activeQueries = [HKQuery]()
 
     // MARK: - Initialization
 
     init() {
-        if (healthStore.authorizationStatus(for: heartRateQuantityType) != .sharingAuthorized) {
-            requestAuthorization()
+        // Request authorization to read heart rate data.
+        AuthorizationManager.requestAuthorization { (success) in
+            // TODO: Export error.
+            print(success)
         }
     }
 
     // MARK: - Public API
 
-    func requestAuthorization() {
-        healthStore.requestAuthorization(toShare: nil, read: [heartRateQuantityType]) { (success, error) -> Void in
-            if success == false {
-                fatalError("Unable to request authorization of Health.")
-            }
-        }
-    }
-
     func start() {
-        // If not authorized to read heart rate, try one more time.
-        if (healthStore.authorizationStatus(for: heartRateQuantityType) != .sharingAuthorized) {
-            requestAuthorization()
-        }
-
         // Configure heart rate quantity type.
         guard let quantityType = HKObjectType.quantityType(forIdentifier: .heartRate) else { return }
 
         // Create query to receive continiuous heart rate samples.
         let datePredicate = HKQuery.predicateForSamples(withStart: Date(), end: nil, options: .strictStartDate)
         let devicePredicate = HKQuery.predicateForObjects(from: [HKDevice.local()])
-        let queryPredicate = CompoundPredicate(andPredicateWithSubpredicates:[datePredicate, devicePredicate])
+        let queryPredicate = NSCompoundPredicate(andPredicateWithSubpredicates:[datePredicate, devicePredicate])
         let updateHandler: HKQueryUpdateHandler = { [weak self] query, samples, deletedObjects, queryAnchor, error in
             if let quantitySamples = samples as? [HKQuantitySample] {
                 self?.process(samples: quantitySamples)

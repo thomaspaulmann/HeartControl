@@ -12,15 +12,20 @@ import HealthKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    // MARK: - Properties
+
+    private let healthStore = HKHealthStore()
+
     var window: UIWindow?
-    let healthStore = HKHealthStore()
+
+    // MARK: - Lifecycle
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         return true
     }
 
     func applicationShouldRequestHealthAuthorization(_ application: UIApplication) {
-        // Authorize access to health data.
+        // Authorize access to health data for watch.
         healthStore.handleAuthorizationForExtension { success, error in
             print(success)
         }

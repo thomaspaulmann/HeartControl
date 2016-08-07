@@ -19,11 +19,12 @@ class InterfaceController: WKInterfaceController {
 
     private let workoutManager = WorkoutManager()
 
-    // MARK: - Initialization
+    // MARK: - Lifecycle
 
-    override init() {
-        super.init()
+    override func willActivate() {
+        super.willActivate()
 
+        // Configure workout manager.
         workoutManager.delegate = self
     }
 

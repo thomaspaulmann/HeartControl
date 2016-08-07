@@ -20,10 +20,11 @@
 		BE25B0101D4F33B100DAF094 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE25B00F1D4F33B100DAF094 /* ExtensionDelegate.swift */; };
 		BE25B0121D4F33B100DAF094 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE25B0111D4F33B100DAF094 /* Assets.xcassets */; };
 		BE3FDBDC1D576B8D009165A8 /* HeartRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3FDBDB1D576B8D009165A8 /* HeartRate.swift */; };
-		BE496A1B1D4F467100C82C4F /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE496A1A1D4F467100C82C4F /* HealthKit.framework */; };
-		BE496A1F1D4F467900C82C4F /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE496A1E1D4F467900C82C4F /* HealthKit.framework */; };
 		BE496A231D4F4D9A00C82C4F /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE496A221D4F4D9A00C82C4F /* WorkoutManager.swift */; };
 		BE5AEE171D4F7CED0027C49C /* HKUnit+BeatsPerMinute.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5AEE161D4F7CED0027C49C /* HKUnit+BeatsPerMinute.swift */; };
+		BE7070091D57A13D00E41B95 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7070081D57A13D00E41B95 /* HealthKit.framework */; };
+		BE70700B1D57A14300E41B95 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE70700A1D57A14300E41B95 /* HealthKit.framework */; };
+		BE70700D1D57A29500E41B95 /* AuthorizationManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE70700C1D57A29500E41B95 /* AuthorizationManger.swift */; };
 		BEB5C5BB1D4F656D00BBF490 /* HeartRateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB5C5BA1D4F656D00BBF490 /* HeartRateManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -87,12 +88,13 @@
 		BE25B0111D4F33B100DAF094 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE25B0131D4F33B100DAF094 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE3FDBDB1D576B8D009165A8 /* HeartRate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartRate.swift; sourceTree = "<group>"; };
-		BE496A1A1D4F467100C82C4F /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS3.0.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		BE496A1C1D4F467100C82C4F /* Heart Control WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Heart Control WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		BE496A1D1D4F467900C82C4F /* Heart Control.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Heart Control.entitlements"; sourceTree = "<group>"; };
-		BE496A1E1D4F467900C82C4F /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		BE496A221D4F4D9A00C82C4F /* WorkoutManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutManager.swift; sourceTree = "<group>"; };
 		BE5AEE161D4F7CED0027C49C /* HKUnit+BeatsPerMinute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HKUnit+BeatsPerMinute.swift"; sourceTree = "<group>"; };
+		BE7070081D57A13D00E41B95 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		BE70700A1D57A14300E41B95 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS3.0.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
+		BE70700C1D57A29500E41B95 /* AuthorizationManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationManger.swift; sourceTree = "<group>"; };
 		BEB5C5BA1D4F656D00BBF490 /* HeartRateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartRateManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,7 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE496A1F1D4F467900C82C4F /* HealthKit.framework in Frameworks */,
+				BE7070091D57A13D00E41B95 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,7 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE496A1B1D4F467100C82C4F /* HealthKit.framework in Frameworks */,
+				BE70700B1D57A14300E41B95 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +168,7 @@
 				BE25B00F1D4F33B100DAF094 /* ExtensionDelegate.swift */,
 				BE496A221D4F4D9A00C82C4F /* WorkoutManager.swift */,
 				BEB5C5BA1D4F656D00BBF490 /* HeartRateManager.swift */,
+				BE70700C1D57A29500E41B95 /* AuthorizationManger.swift */,
 				BE3FDBDB1D576B8D009165A8 /* HeartRate.swift */,
 				BE5AEE161D4F7CED0027C49C /* HKUnit+BeatsPerMinute.swift */,
 			);
@@ -204,8 +207,8 @@
 		BE496A191D4F467100C82C4F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BE496A1E1D4F467900C82C4F /* HealthKit.framework */,
-				BE496A1A1D4F467100C82C4F /* HealthKit.framework */,
+				BE70700A1D57A14300E41B95 /* HealthKit.framework */,
+				BE7070081D57A13D00E41B95 /* HealthKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -302,6 +305,9 @@
 							com.apple.HealthKit = {
 								enabled = 1;
 							};
+							com.apple.HealthKit.watchos = {
+								enabled = 1;
+							};
 						};
 					};
 				};
@@ -375,6 +381,7 @@
 				BE5AEE171D4F7CED0027C49C /* HKUnit+BeatsPerMinute.swift in Sources */,
 				BE25B00E1D4F33B100DAF094 /* InterfaceController.swift in Sources */,
 				BE3FDBDC1D576B8D009165A8 /* HeartRate.swift in Sources */,
+				BE70700D1D57A29500E41B95 /* AuthorizationManger.swift in Sources */,
 				BEB5C5BB1D4F656D00BBF490 /* HeartRateManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -39,12 +39,12 @@ class WorkoutManager: NSObject {
     // MARK: - Properties
 
     private let healthStore = HKHealthStore()
+    private let heartRateManager = HeartRateManager()
 
     weak var delegate: WorkoutManagerDelegate?
 
     private(set) var state: WorkoutState = .stopped
 
-    private var heartRateManager = HeartRateManager()
     private var session: HKWorkoutSession?
 
     // MARK: - Initialization
@@ -53,7 +53,6 @@ class WorkoutManager: NSObject {
         super.init()
 
         // Configure heart rate manager.
-        heartRateManager.requestAuthorization()
         heartRateManager.delegate = self
     }
 
@@ -125,7 +124,7 @@ extension WorkoutManager: HKWorkoutSessionDelegate {
         }
     }
 
-    func workoutSession(_ workoutSession: HKWorkoutSession, didFailWithError error: NSError) {
+    func workoutSession(_ workoutSession: HKWorkoutSession, didFailWithError error: Error) {
         fatalError(error.localizedDescription)
     }
 
@@ -137,7 +136,7 @@ extension WorkoutManager: HKWorkoutSessionDelegate {
 
 // MARK: - Heart Rate Delegate
 
-extension WorkoutManager: HeartRateDelegate {
+extension WorkoutManager: HeartRateManagerDelegate {
 
     func heartRate(didChangeTo newHeartRate: HeartRate) {
         delegate?.workoutManager(self, didChangeHeartRateTo: newHeartRate)
