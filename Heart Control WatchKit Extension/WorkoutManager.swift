@@ -93,6 +93,9 @@ class WorkoutManager: NSObject {
             return
         }
 
+        // Stop querying heart rate.
+        heartRateManager.stop()
+
         // Stop the workout session.
         healthStore.end(session!)
 
@@ -116,9 +119,6 @@ extension WorkoutManager: HKWorkoutSessionDelegate {
             if fromState == .notStarted {
                 heartRateManager.start()
             }
-
-        case .ended:
-            heartRateManager.stop()
 
         default:
             break

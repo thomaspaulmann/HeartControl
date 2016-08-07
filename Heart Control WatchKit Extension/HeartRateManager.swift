@@ -75,7 +75,6 @@ class HeartRateManager {
     }
 
     func stop() {
-        // TODO: Fix never ending heart rate measurements.
         activeQueries.forEach { healthStore.stop($0) }
         activeQueries.removeAll()
     }
