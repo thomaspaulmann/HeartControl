@@ -7,8 +7,6 @@
 //
 
 import WatchKit
-import Foundation
-import HealthKit
 
 class InterfaceController: WKInterfaceController {
 

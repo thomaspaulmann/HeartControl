@@ -10,13 +10,6 @@ import HealthKit
 
 typealias HKQueryUpdateHandler = (HKAnchoredObjectQuery, [HKSample]?, [HKDeletedObject]?, HKQueryAnchor?, NSError?) -> Void
 
-struct HeartRate {
-
-    let timestamp: Date
-    let bpm: Double
-
-}
-
 protocol HeartRateDelegate: class {
 
     func heartRate(didChangeTo newHeartRate: HeartRate)
