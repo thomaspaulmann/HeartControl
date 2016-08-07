@@ -2,9 +2,7 @@
 
 Monitor your heart rate, continuously.
 
-<p align="center">
-  <img src="Design/Logo.png"/>
-</p>
+<img src="Design/Logo.png" width="400px"/>
 
 ## What is it?
 
