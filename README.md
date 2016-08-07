@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/thomaspaulmann/HeartControl.svg?branch=master)](https://travis-ci.org/thomaspaulmann/HeartControl)
 [![Swift](https://img.shields.io/badge/Swift-3.0-green.svg)](http://www.github.com/thomaspaulmann/heartcontrol/)
 
 # Heart Control
