@@ -1,10 +1,8 @@
+[![Swift](https://img.shields.io/badge/Swift-3.0-green.svg)](http://www.github.com/thomaspaulmann/heartcontrol/)
+
 # Heart Control
 
 Monitor your heart rate, continuously.
-
-<img src="Design/Logo.png" width="400px"/>
-
-[![Swift](https://img.shields.io/badge/Swift-3.0-green.svg)](http://www.github.com/thomaspaulmann/heartcontrol/)
 
 ## What is it?
 
