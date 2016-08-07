@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11103.10"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,26 +19,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Heart Control" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dFv-pU-zjz">
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="32"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qfG-Lo-oms">
-                                <frame key="frameInset" minX="54" minY="361" width="266" height="228"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <string key="text">It's all about you're Apple Watch. Open the app on your watch and measure your heart rate, continuously.
----
-If you want to know more about the source code, have a look at http://www.github.com/thomaspaulmann/heartcontrol</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Heart Control" translatesAutoresizingMaskIntoConstraints="NO" id="ODf-dh-ipx">
+                                <frame key="frameInset" minX="90" minY="-167" width="195" height="1001"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open the app on your watch and measure your heart rate, continuously." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qfG-Lo-oms">
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.76078431372549016" green="0.82352941176470584" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="dFv-pU-zjz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QUV-dk-FWc"/>
-                            <constraint firstItem="dFv-pU-zjz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="VAM-NK-Rac"/>
+                            <constraint firstItem="ODf-dh-ipx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5jh-s2-3jC"/>
+                            <constraint firstAttribute="trailing" secondItem="ODf-dh-ipx" secondAttribute="trailing" constant="90" id="A6H-dq-ewK"/>
+                            <constraint firstItem="qfG-Lo-oms" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="AVh-1y-8WM"/>
+                            <constraint firstItem="ODf-dh-ipx" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="BsD-g9-leV"/>
+                            <constraint firstItem="qfG-Lo-oms" firstAttribute="top" secondItem="ODf-dh-ipx" secondAttribute="bottom" constant="-402" id="Ftl-YW-x5x"/>
+                            <constraint firstItem="qfG-Lo-oms" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="LAP-yv-fVI"/>
+                            <constraint firstItem="ODf-dh-ipx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="90" id="jeT-CS-j06"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -46,4 +45,7 @@ If you want to know more about the source code, have a look at http://www.github
             <point key="canvasLocation" x="24.800000000000001" y="34.632683658170919"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Heart Control" width="1000" height="1000"/>
+    </resources>
 </document>
