@@ -152,9 +152,8 @@
 		BE25AFFD1D4F33B100DAF094 /* Heart Control WatchKit App */ = {
 			isa = PBXGroup;
 			children = (
+				BE3FDBDF1D578CFE009165A8 /* Supporting Files */,
 				BE25AFFE1D4F33B100DAF094 /* Interface.storyboard */,
-				BE25B0011D4F33B100DAF094 /* Assets.xcassets */,
-				BE25B0031D4F33B100DAF094 /* Info.plist */,
 			);
 			path = "Heart Control WatchKit App";
 			sourceTree = "<group>";
@@ -189,6 +188,15 @@
 				BE496A1D1D4F467900C82C4F /* Heart Control.entitlements */,
 				BE25AFF11D4F33B100DAF094 /* Assets.xcassets */,
 				BE25AFF61D4F33B100DAF094 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BE3FDBDF1D578CFE009165A8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BE25B0011D4F33B100DAF094 /* Assets.xcassets */,
+				BE25B0031D4F33B100DAF094 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

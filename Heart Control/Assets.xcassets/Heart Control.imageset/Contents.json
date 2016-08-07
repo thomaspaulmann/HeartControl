@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Heart Control.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "Heart Control.png",
       "scale" : "2x"
     },
     {

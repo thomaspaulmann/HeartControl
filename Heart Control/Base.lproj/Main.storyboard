@@ -19,9 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Heart Control" translatesAutoresizingMaskIntoConstraints="NO" id="ODf-dh-ipx">
-                                <frame key="frameInset" minX="90" minY="-167" width="195" height="1001"/>
-                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Heart Control" translatesAutoresizingMaskIntoConstraints="NO" id="ODf-dh-ipx"/>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open the app on your watch and measure your heart rate, continuously." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qfG-Lo-oms">
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -46,6 +44,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Heart Control" width="1000" height="1000"/>
+        <image name="Heart Control" width="500" height="500"/>
     </resources>
 </document>

@@ -35,6 +35,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Heart Control" width="1000" height="1000"/>
+        <image name="Heart Control" width="500" height="500"/>
     </resources>
 </document>
