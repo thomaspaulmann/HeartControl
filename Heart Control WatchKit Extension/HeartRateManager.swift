@@ -27,17 +27,27 @@ class HeartRateManager {
 
     // MARK: - Properties
 
+    private lazy var heartRateQuantityType: HKObjectType = {
+        return HKObjectType.quantityType(forIdentifier: .heartRate)!
+    }()
+
     private let healthStore = HKHealthStore()
 
     weak var delegate: HeartRateDelegate?
 
     private var activeQueries = [HKQuery]()
 
+    // MARK: - Initialization
+
+    init() {
+        if (healthStore.authorizationStatus(for: heartRateQuantityType) != .sharingAuthorized) {
+            requestAuthorization()
+        }
+    }
+
     // MARK: - Public API
 
     func requestAuthorization() {
-        guard let heartRateQuantityType = HKObjectType.quantityType(forIdentifier: .heartRate) else { return }
-
         healthStore.requestAuthorization(toShare: nil, read: [heartRateQuantityType]) { (success, error) -> Void in
             if success == false {
                 fatalError("Unable to request authorization of Health.")
@@ -46,7 +56,10 @@ class HeartRateManager {
     }
 
     func start() {
-        // TODO: Check for granted authorization!
+        // If not authorized to read heart rate, try one more time.
+        if (healthStore.authorizationStatus(for: heartRateQuantityType) != .sharingAuthorized) {
+            requestAuthorization()
+        }
 
         // Configure heart rate quantity type.
         guard let quantityType = HKObjectType.quantityType(forIdentifier: .heartRate) else { return }
@@ -105,5 +118,6 @@ class HeartRateManager {
         let newHeartRate = HeartRate(timestamp: timestamp, bpm: count)
         delegate?.heartRate(didChangeTo: newHeartRate)
     }
+
 
 }
