@@ -88,6 +88,7 @@ class HeartRateManager {
     }
 
     func stop() {
+        // Stop all active queries.
         activeQueries.forEach { healthStore.stop($0) }
         activeQueries.removeAll()
     }
