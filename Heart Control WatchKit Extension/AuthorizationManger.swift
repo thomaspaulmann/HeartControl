@@ -10,21 +10,21 @@ import HealthKit
 
 class AuthorizationManager {
 
-    static func requestAuthorization(completionHandler: ((success: Bool) -> Void)) {
+    static func requestAuthorization(completionHandler: ((_ success: Bool) -> Void)) {
         // Create health store.
         let healthStore = HKHealthStore()
 
         // Check if there is health data available.
         if (!HKHealthStore.isHealthDataAvailable()) {
             print("No health data is available.")
-            completionHandler(success: false)
+            completionHandler(false)
             return
         }
 
         // Create quantity type for heart rate.
         guard let heartRateQuantityType = HKQuantityType.quantityType(forIdentifier: .heartRate) else {
             print("Unable to create quantity type for heart rate.")
-            completionHandler(success: false)
+            completionHandler(false)
             return
         }
 
@@ -33,12 +33,12 @@ class AuthorizationManager {
             // If there is an error, do nothing.
             guard error == nil else {
                 print(error)
-                completionHandler(success: false)
+                completionHandler(false)
                 return
             }
 
             // Delegate success.
-            completionHandler(success: success)
+            completionHandler(success)
         }
     }
 

@@ -39,7 +39,7 @@ class WorkoutManager: NSObject {
     // MARK: - Properties
 
     private let healthStore = HKHealthStore()
-    private let heartRateManager = HeartRateManager()
+    fileprivate let heartRateManager = HeartRateManager()
 
     weak var delegate: WorkoutManagerDelegate?
 
