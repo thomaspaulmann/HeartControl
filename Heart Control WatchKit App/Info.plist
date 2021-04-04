@@ -28,7 +28,7 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>WKCompanionAppBundleIdentifier</key>
-	<string>com.thomaspaulmann.Heart-Control</string>
+	<string>com.kevintanner.Heart-Control</string>
 	<key>WKWatchKitApp</key>
 	<true/>
 </dict>
