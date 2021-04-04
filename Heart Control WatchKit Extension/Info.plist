@@ -27,7 +27,7 @@
 		<key>NSExtensionAttributes</key>
 		<dict>
 			<key>WKAppBundleIdentifier</key>
-			<string>com.thomaspaulmann.Heart-Control.watchkitapp</string>
+			<string>com.kevintanner.Heart-Control.watchkitapp</string>
 		</dict>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.watchkit</string>
@@ -42,5 +42,11 @@
 	</array>
 	<key>WKExtensionDelegateClassName</key>
 	<string>$(PRODUCT_MODULE_NAME).ExtensionDelegate</string>
+	<key>WKRunsIndependentlyOfCompanionApp</key>
+	<true/>
+	<key>NSHealthShareUsageDescription</key>
+	<string>This is needed to view your heart rate data in an interesting way.</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>This is need to save your heart rate data to health.</string>
 </dict>
 </plist>

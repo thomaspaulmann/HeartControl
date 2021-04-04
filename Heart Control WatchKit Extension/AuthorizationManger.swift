@@ -10,7 +10,7 @@ import HealthKit
 
 class AuthorizationManager {
 
-    static func requestAuthorization(completionHandler: ((_ success: Bool) -> Void)) {
+    static func requestAuthorization(completionHandler: @escaping ((_ success: Bool) -> Void)) {
         // Create health store.
         let healthStore = HKHealthStore()
 
@@ -32,7 +32,7 @@ class AuthorizationManager {
         healthStore.requestAuthorization(toShare: nil, read: [heartRateQuantityType]) { (success, error) -> Void in
             // If there is an error, do nothing.
             guard error == nil else {
-                print(error)
+//                print(error)
                 completionHandler(false)
                 return
             }

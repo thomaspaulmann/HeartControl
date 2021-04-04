@@ -72,14 +72,14 @@ class WorkoutManager: NSObject {
 
         // Create workout session.
         do {
-            session = try HKWorkoutSession(configuration: workoutConfiguration)
+            session = try HKWorkoutSession(healthStore: healthStore, configuration: workoutConfiguration)
             session!.delegate = self
         } catch {
             fatalError("Unable to create Workout Session!")
         }
 
         // Start workout session.
-        healthStore.start(session!)
+        session?.startActivity(with: Date())
 
         // Update state to started and inform delegates.
         state = .started
@@ -96,7 +96,7 @@ class WorkoutManager: NSObject {
         heartRateManager.stop()
 
         // Stop the workout session.
-        healthStore.end(session!)
+        session?.end()
 
         // Clear the workout session.
         session = nil

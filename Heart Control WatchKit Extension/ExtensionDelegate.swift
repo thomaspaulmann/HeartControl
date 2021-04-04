@@ -29,7 +29,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
             // Process the background task
             
             // Be sure to complete each task when finished processing.
-            task.setTaskCompleted()
+            task.setTaskCompletedWithSnapshot(false)
         }
     }
 
